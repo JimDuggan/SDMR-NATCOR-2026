@@ -33,7 +33,7 @@ sirqv_model <- function(time, stocks, auxs){
 
 
     return (list(c(dS_dt,dI_dt,dIQ_dt,dR_dt,dSV_dt,dVF_dt),Lambda=Lambda,N=N,
-                 FL_CVF=CVF,FL_VR=VR,FL_IRQ=IRQ,FL_IR=IR,FL_RRQ=RRQ,FL_RR=RR,
+                 FL_CVF=CVF,FL_VR=VR,FL_IRQ=IRQ,FL_IR=IR,FL_RRQ=RRQ,FL_RR=RR,Attack_Rate=Attack_Rate,
                  Rollout_Fraction=Rollout_Fraction,Max_Vacc_Fraction=Max_Vacc_Fraction,
                  Quarantine_Fraction=Quarantine_Fraction,Tx_Modifier=Tx_Modifier,
                  R0=R0,Recovery_Delay=Recovery_Delay))   
@@ -71,13 +71,13 @@ run_sirqv_model<- function(start=0,
                Recovery_Delay=Recovery_Delay)
   
   
-  sim <-data.frame(ode(y=stocks, 
-                       times  = simtime, 
-                       func   = sirqv_model, 
-                       parms  = auxs, 
-                       method = "euler"))
+  sim <-data.frame(deSolve::ode(y=stocks, 
+                                times  = simtime, 
+                                func   = sirqv_model, 
+                                parms  = auxs, 
+                                method = "euler"))
   
-  as_tibble(sim)
+  dplyr::as_tibble(sim)
 }
 
 # One single run, default values

@@ -70,13 +70,13 @@ run_bdg_model<- function(start=0,
                Desired_Inventory=Desired_Inventory)
   
   
-  sim <-data.frame(ode(y=stocks, 
-                       times  = simtime, 
-                       func   = bdg_model, 
-                       parms  = auxs, 
-                       method = "euler"))
+  sim <-data.frame(deSolve::ode(y=stocks, 
+                                times  = simtime, 
+                                func   = bdg_model, 
+                                parms  = auxs, 
+                                method = "euler"))
   
-  as_tibble(sim)
+  dplyr::as_tibble(sim)
 }
 
 # One single run, default values
