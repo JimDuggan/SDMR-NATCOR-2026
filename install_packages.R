@@ -1,0 +1,11 @@
+install.packages("deSolve")
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("purrr")
+install.packages("mirai")
+install.packages("tidymodels")
+install.packages("forcats")
+install.packages("ranger")
+install.packages("DALEX")
+install.packages("DALEXtra")
+

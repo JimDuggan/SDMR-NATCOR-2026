@@ -1,8 +1,7 @@
-library(tidyverse)
 library(tidymodels)
-library(vip)
 library(ggplot2)
-library(glue)
+library(dplyr)
+library(forcats)
 
 # Overall process acknowledgment: https://stackoverflow.com/questions/60368047/tidymodels-ranger-with-cross-validation
 
