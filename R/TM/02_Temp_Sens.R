@@ -13,8 +13,8 @@ sim_args <- list(
   beta=runif(NSIMS)
 )
 
-cat("Cores = ",parallel::detectCores()," >> ",format(Sys.time(), "%a %b %d %X %Y"),"\n")
-daemons(parallel::detectCores(),output = TRUE)
+cat("Start sensitivity...",format(Sys.time(), "%a %b %d %X %Y"),"\n")
+daemons(4,output = TRUE)
 
 # Run simulations in parallel
 sens <- pmap(sim_args,in_parallel(~{

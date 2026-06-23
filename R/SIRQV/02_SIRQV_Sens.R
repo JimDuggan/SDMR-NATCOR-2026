@@ -16,8 +16,8 @@ sim_sirqv_args <- list(
   R0=runif(NSIMS,min=1.5,max=4)
 )
 
-cat("Cores = ",parallel::detectCores()," >> ",format(Sys.time(), "%a %b %d %X %Y"),"\n")
-daemons(parallel::detectCores(),output = TRUE)
+cat("Start sensitivity...",format(Sys.time(), "%a %b %d %X %Y"),"\n")
+daemons(4,output = TRUE)
 
 # Run simulations in parallel
 sens <- pmap(sim_sirqv_args,in_parallel(~{
