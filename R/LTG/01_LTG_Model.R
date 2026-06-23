@@ -20,11 +20,11 @@ auxs    <- c(r=0.15,K=100000)  # Eq (3) and Eq (4)
 
 # It's useful to wrap the call to ode with a function
 run_ltg_model<- function(start=0, 
-                        finish=100,
-                          step=1/4,
-                          r=0.15,
-                          K=100000,
-                          inits=c(P=100)){
+                         finish=100,
+                         step=1/4,
+                         r=0.15,
+                         K=100000,
+                         inits=c(P=100)){
 
   simtime <- seq(start, finish, step)
   # initialise vector of stocks
