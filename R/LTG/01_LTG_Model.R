@@ -15,9 +15,6 @@ ltg_model <- function(time, stocks, auxs){
   })
 }
 
-stocks  <- c(P=100)            # Eq (5)
-auxs    <- c(r=0.15,K=100000)  # Eq (3) and Eq (4)
-
 # It's useful to wrap the call to ode with a function
 run_ltg_model<- function(start=0, 
                          finish=100,
@@ -34,7 +31,6 @@ run_ltg_model<- function(start=0,
   auxs    <- c(r=r,
                K=K)
   
-
   sim <-data.frame(deSolve::ode(y=stocks, 
                                 times  = simtime, 
                                 func   = ltg_model, 
